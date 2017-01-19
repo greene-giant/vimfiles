@@ -25,9 +25,9 @@
 [submodule "bundle/indentLine"]
 	path = bundle/indentLine
 	url = git://github.com/Yggdroot/indentLine.git
-[submodule "bundle/easytags"]
-	path = bundle/easytags
-	url = git://github.com/xolox/vim-easytags.git
 [submodule "bundle/startify"]
 	path = bundle/startify
 	url = git://github.com/mhinz/vim-startify.git
+[submodule "bundle/csv"]
+	path = bundle/csv
+	url = git://github.com/chrisbra/csv.vim.git

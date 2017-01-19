@@ -352,33 +352,44 @@ nnoremap <space>rf :Unite -start-insert file_rec<cr>
 
 
 """"""""""""""""""""""""""""""""""""""""
-" EasyTags Settings:
+" EasyTags Settings: (removed, too slow on large projects, tag jumping is enough)
 """"""""""""""""""""""""""""""""""""""""
+" Requires exuberant ctags http://ctags.sourceforge.net/
 
-" Let Vim walk up directory hierarchy from CWD to root looking for tags file
-set tags=tags;/
+"""" Let Vim walk up directory hierarchy from CWD to root looking for tags file
+"""set tags=tags;/
+"""
+"""" Tell EasyTags to use the tags file found by Vim
+"""let g:easytags_dynamic_files = 1
+"""
+"""" Disable auto highlighting, just too slow for large projects
+"""let g:easytags_auto_highlight = 0
+"""
+"""" Disbale auto update, would be better on a file type basis
+"""let g:easytags_auto_update = 0
+"""
+"""
+"""" Turn on auto update for cpp and h files (Old, use command instead)
+""""autocmd FileType h   let g:easytags_auto_update = 1
+""""autocmd FileType cpp let g:easytags_auto_update = 1
+"""
+"""
+"""" Provide a command to turn on auto tag updating:
+"""function AutoTagsFunction()
+"""  let g:easytags_auto_update = 1
+"""endfunction
+"""
+"""command -nargs=0 AutoTags call AutoTagsFunction()
 
-" Tell EasyTags to use the tags file found by Vim
-let g:easytags_dynamic_files = 1
 
-" Disable auto highlighting, just too slow for large projects
-let g:easytags_auto_highlight = 0
+" Change the shortcuts for tag jumping:
+" Ctrl+] :: Provide list of tags, then jump
+" Ctrl+t :: Return to previous location
+map <C-]> :exec("tjump ".expand("<cword>"))<CR>
+"map <C-[> <C-t> " Very bad idea, this is the same as esc!
 
-" Disbale auto update, would be better on a file type basis
-let g:easytags_auto_update = 0
-
-
-" Turn on auto update for cpp and h files (Old, use command instead)
-"autocmd FileType h   let g:easytags_auto_update = 1
-"autocmd FileType cpp let g:easytags_auto_update = 1
-
-
-" Provide a command to turn on auto tag updating:
-function AutoTagsFunction()
-  let g:easytags_auto_update = 1
-endfunction
-
-command -nargs=0 AutoTags call AutoTagsFunction()
+" Open in new vertical tab:
+map <C-\> :vsp split<CR>:exec("tag ".expand("<cword>"))<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""
@@ -396,8 +407,20 @@ autocmd FileType h setlocal list lcs=tab:\|\
 """"""""""""""""""""""""""""""""""""""""
 
 " Turn on colors for vim files:
-let g:colorizer_auto_filetype='vim'
+"let g:colorizer_auto_filetype='vim' (this can cause slow down and lag)
 
 " Turn off colorizer for comments:
 let g:colorizer_skip_comments = 1
 
+
+"""""""""""""""""""""""""""""""""""""""""
+" CSV Settings:
+""""""""""""""""""""""""""""""""""""""""
+
+" Don't hide the commas:
+let g:csv_no_conceal = 1
+
+" Turn off CSV for dat files:
+augroup filetypedetect
+  au! BufRead,BufNewFile *.dat    setfiletype dat
+augroup END
