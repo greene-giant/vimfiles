@@ -136,30 +136,7 @@ source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
 behave mswin
 
-set diffexpr=MyDiff()
-function MyDiff()
-  let opt = '-a --binary '
-  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-  let arg1 = v:fname_in
-  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-  let arg2 = v:fname_new
-  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-  let arg3 = v:fname_out
-  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-  let eq = ''
-  if $VIMRUNTIME =~ ' '
-    if &sh =~ '\<cmd'
-      let cmd = '""' . $VIMRUNTIME . '\diff"'
-      let eq = '"'
-    else
-      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
-    endif
-  else
-    let cmd = $VIMRUNTIME . '\diff'
-  endif
-  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
-endfunction
+
 
 set colorcolumn=80
 set textwidth=0
@@ -400,6 +377,9 @@ map <C-\> :vsp split<CR>:exec("tag ".expand("<cword>"))<CR>
 autocmd FileType cpp setlocal list lcs=tab:\|\ 
 autocmd FileType h setlocal list lcs=tab:\|\ 
 
+" Exclude csv files:
+let g:indentLine_fileTypeExclude = ['csv']
+
 
 
 """""""""""""""""""""""""""""""""""""""""
@@ -424,3 +404,10 @@ let g:csv_no_conceal = 1
 augroup filetypedetect
   au! BufRead,BufNewFile *.dat    setfiletype dat
 augroup END
+
+" Have airline display the variable name:
+let g:airline#extensions#csv#column_display = 'Name'
+
+" Disable colorcolumn for csv files:
+au FileType csv setlocal colorcolumn=
+
