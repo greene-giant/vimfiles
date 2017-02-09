@@ -230,6 +230,41 @@ autocmd FileType output normal G zo
 let g:tex_conceal = ""
 
 
+
+""""""""""""""""""""""""""""""""""""""""
+" Diff Settings:
+""""""""""""""""""""""""""""""""""""""""
+
+""" Hide the fold column:
+set diffopt=foldcolumn:0
+ 
+
+if &diff
+   """ Double the width:
+   let &columns = &columns*2
+
+
+   """ Remove color column:
+   set colorcolumn=
+
+
+   """ New shortcuts:
+   nnoremap <space><Left> :diffg LO<cr>
+   nnoremap <space><Up> :diffg BA<cr>
+   nnoremap <space><Right> :diffg REMOTE<cr>
+
+   """ Fix for 'Cannot read or write temp files'
+   if has("gui_win32")
+      set shell=C:\Windows\System32\cmd.exe
+   endif
+
+   """ Turn off syntax highlighting to make changes easier to see:
+   syntax off
+endif
+
+
+
+
 """"""""""""""""""""""""""""""""""""""""
 " Airline Settings:
 """"""""""""""""""""""""""""""""""""""""

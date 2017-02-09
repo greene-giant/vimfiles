@@ -83,6 +83,14 @@ hi WarningMsg guifg=#e5786d
 
 
 
+""" Diff:
+hi DiffAdd      guifg=#cae682  guibg=#303030
+hi DiffChange   guifg=#8ac6f2  guibg=#303030
+hi DiffDelete   guifg=#e5786d  guibg=#303030
+hi DiffText     guifg=#AA80FE  guibg=#303030  gui=bold
+
+
+
 
 
 """ Syntax Highlighting:
