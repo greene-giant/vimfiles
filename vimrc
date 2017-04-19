@@ -330,15 +330,15 @@ nnoremap <space>y :Unite history/yank<cr>
 
 
 """ buffer:
-nnoremap <space>b :Unite buffer<cr>
+nnoremap <space>b :Unite -quick-match buffer<cr>
 
 
 """ file search (async needs vimproc):
 nnoremap <space>f :Unite -start-insert file<cr>
 
-"(async needs vimproc):
-"nnoremap <C-p> :Unite file_rec/async<cr>
+""" recursive file search (async needs vimproc):
 nnoremap <space>rf :Unite -start-insert file_rec<cr>
+"nnoremap <space>rf :Unite -start-insert file_rec/async<cr>
 
 
 """ grep searching (needs vimproc):
