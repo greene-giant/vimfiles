@@ -77,8 +77,8 @@ hi CSVColumnEven       guifg=#8ac6f2
  
 
 """ Error Messages:
-hi ErrorMsg   guifg=#242424 guibg=#e5786d
-hi Error      guifg=#242424 guibg=#e5786d
+hi ErrorMsg   guifg=#242424 guibg=#e5786d gui=bold
+hi Error      guifg=#242424 guibg=#e5786d gui=bold
 hi WarningMsg guifg=#e5786d
 
 
