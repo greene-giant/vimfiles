@@ -77,6 +77,8 @@ autocmd FileType h	setlocal shiftwidth=3 tabstop=3 softtabstop=3 expandtab
 autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
 autocmd FileType kivy	setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
 autocmd FileType tex	setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
+autocmd FileType cmake  setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
+autocmd FileType xml    setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 
 
 " Pylint settings:
@@ -172,6 +174,13 @@ set noantialias
 " Allow the creation of a new buffer while there are edits in the current one:
 set hidden
 
+
+""""""""""""""""""""""""""""""""""""""""
+" File Autocomplete Settings:
+""""""""""""""""""""""""""""""""""""""""
+set wildmode=longest,list,full
+set wildmenu
+set wildignore+=*.a,*.o
 
 
 """"""""""""""""""""""""""""""""""""""""
@@ -374,8 +383,9 @@ set tags=tags;/
 
 " Change the shortcuts for tag jumping:
 " Ctrl+] :: Provide list of tags, then jump
-" Ctrl+t :: Return to previous location
+" Ctrl+\ :: Return to previous location
 map <C-]> :exec("tjump ".expand("<cword>"))<CR>
+map <C-\> <C-t>
 "map <C-[> <C-t> " Very bad idea, this is the same as esc!
 
 " Open in new vertical tab:

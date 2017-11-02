@@ -158,6 +158,9 @@ hi cPreProcTag  guifg=#cae682 gui=bold
 hi cFunctionTag  guifg=#8ac6f2 gui=bold
 
 
+""" File Tab Autocomplete:
+hi wildmenu   guifg=#242424  guibg=#8ac6f2 gui=none
+
 
 
 

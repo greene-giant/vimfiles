@@ -17,19 +17,15 @@ syn case ignore
 
 
 " Error box:
-syn region outErrorBox start="\<*" end="*" contains=outKeywords oneline
+"syn region outErrorBox start="\<*" end="*" contains=outKeywords oneline
 
 " Output box:
-syn region outBoxHead start="/-" end="-\\" contains=outKeywords oneline
-syn region outBoxLine start="\\-" end="-/" contains=outKeywords oneline
-syn match outBoxLine "|"
-
-" Centered lines
-"syn region outBoxCentered start="|  " end="  |" contains=outBoxLine oneline
+"syn region outBoxHead start="/-" end="-\\" contains=outKeywords oneline
+"syn region outBoxLine start="\\-" end="-/" contains=outKeywords oneline
+"syn match outBoxLine "|"
 
 " Seperator
-"syn match outBoxSep "==.*"
-syn region outBoxSep start="=" end="=|"me=e-1 oneline
+"syn region outBoxSep start="=" end="=|"me=e-1 oneline
 syn region outSimulation 
 	 \ start=+<------ Simulation Start :: .* :: Simulation Start ------>+
 	 \   end=+<-------- Simulation End :: .* :: Simulation End -------->+
