@@ -96,6 +96,7 @@ hi DiffText     guifg=#AA80FE  guibg=#303030  gui=bold
 """ Syntax Highlighting:
 """hi Comment 		guifg=#99968b gui=italic
 hi Comment 		guifg=#99968b gui=none
+hi link pythonDocstring Comment
 hi Todo 		guifg=#f6f3e8 guibg=#AA80FE gui=none
 
 """
