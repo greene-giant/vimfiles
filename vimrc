@@ -53,6 +53,23 @@ set mouse=a
 
 
 
+let g:netrw_liststyle=3
+" Lifted off from http://blog.g14n.info/2013/07/my-vim-configuration.html
+" when navigating a folder, hitting <v> opens a window at right side (default
+" is left side)
+"
+" Thank you!
+let g:netrw_altv = 1
+
+" Disable the stupid scroll wheel click shortcuts:
+:map <MiddleMouse> <Nop>
+:imap <MiddleMouse> <Nop>
+:map <2-MiddleMouse> <Nop>
+:imap <2-MiddleMouse> <Nop>
+:map <3-MiddleMouse> <Nop>
+:imap <3-MiddleMouse> <Nop>
+:map <4-MiddleMouse> <Nop>
+:imap <4-MiddleMouse> <Nop>
 
 
 
