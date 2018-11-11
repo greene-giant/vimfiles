@@ -42,9 +42,6 @@ set incsearch		" do incremental searching
 set guioptions+=e
 "set showtabline=2
 
-set lines=63
-set columns=100
-
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
@@ -178,6 +175,9 @@ if has ('gui_running')
    elseif has("gui_gtk2")
       set guifont=DejaVu_Sans_Mono_for_Powerline:h10
    endif
+
+   set lines=63
+   set columns=100
 endif
 
 " Turn off the bells!
